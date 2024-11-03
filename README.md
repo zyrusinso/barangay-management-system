@@ -109,7 +109,7 @@ Barangay Management - Dashboard
 ## Technologies Used
 
 - **Backend**: Laravel
-- **Frontend**: TailwindCSS & Vue.js
+- **Frontend**: TailwindCSS & Blade Template
 - **Database**: MySQL
 - **Version Control**: Git, GitHub
 - **Role Management**: Filament Shield (for roles and permissions)
