@@ -67,7 +67,7 @@ The Barangay Management System is a web-based platform designed to enhance the d
 
 ### Requirements
 
-- PHP ≥ 7.x
+- PHP ≥ 8.2.x
 - Laravel (used as backend framework)
 - MySQL as the database
 - Composer for dependency management
@@ -104,6 +104,7 @@ The Barangay Management System is a web-based platform designed to enhance the d
 ## Screenshots
 
 Barangay Management - Dashboard
+![Barangay Management - Dashboard](https://github.com/zyrusinso/barangay-management-system/blob/master/public/images/Dashboard.PNG)
 
 ## Technologies Used
 
