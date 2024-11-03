@@ -1,66 +1,135 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Barangay Management System
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+The Barangay Management System is a web-based platform designed to enhance the daily operations of a barangay by managing data such as cases, residents, lupons, medical referrals, and more. The system is intended to streamline administrative processes, render efficient service to residents, and make record-keeping hassle-free.
 
-## About Laravel
+## Features
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+1. **Dashboard**
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+   - Provides an overview of essential metrics such as:
+    - Total documents
+    - Recent documents added
+    - Total escalated cases
+    - Pending cases
+    - Resolved cases
+    - Medical referrals (both total and completed)
+    - Lupon cases (total and pending)
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+2. **Cases Management**
 
-## Learning Laravel
+   - **Add New Cases**: Record complaints, disputes, or legal cases submitted by residents.
+   - **Monitor Case Status**: Track the progress of each case, including pending, escalated, and resolved.
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+3. **Residents Management**
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+   - **Add/Update Resident Profiles**: Manage resident details such as name, age, address, and civil status.
+   - Store essential contact information for all barangay residents.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+4. **Lupon Management**
 
-## Laravel Sponsors
+   - Manage Lupons, which are local committees responsible for handling disputes.
+   - Record Lupon sessions and maintain detailed case resolutions involving these committees.
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+5. **Schedules Management**
 
-### Premium Partners
+   - **Track Schedules**: Manage important barangay activities like community gatherings, Lupon hearings, or medical sessions.
+   - Allows barangay officials to create schedules for meetings, inspections, and more.
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+6. **Medical Referrals**
 
-## Contributing
+   - Manage and track medical referrals for residents who are referred to medical institutions or for medical services.
+   - Track the total number of referrals and completed referrals.
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+7. **Escalated Cases**
 
-## Code of Conduct
+   - Track cases that have been escalated from minor disputes to formal legal issues requiring higher intervention.
+   - Record the escalation reason and current status of each escalated case.
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+8. **Documents Management**
 
-## Security Vulnerabilities
+   - **Generate Certificates**: Process common barangay documents like barangay clearance, residency certificates, and permit requests.
+   - Store scanned copies of important documents.
+   - Keep track of document issuance history per resident.
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+9. **User Management**
+
+   - Configurable roles for barangay officials:
+     - **Admin**: Full access to all functionalities.
+     - **Staff/Officer**: Limited access based on assigned permissions.
+   - Users can be added, edited, or removed as per the barangay's current staffing needs.
+
+10. **Filament Shield (Roles & Permissions)**
+
+    - Manage and enforce role-based access control (RBAC).
+    - Authorize specific roles to view or access certain features.
+
+## Installation
+
+### Requirements
+
+- PHP ≥ 7.x
+- Laravel (used as backend framework)
+- MySQL as the database
+- Composer for dependency management
+- Node.js (for managing frontend assets)
+
+### Steps
+
+1. Clone the repository:   ```bash
+   git clone https://github.com/yourusername/barangay-management-system.git   ```
+
+2. Navigate into the project directory:   ```bash
+   cd barangay-management-system   ```
+
+3. Install backend dependencies:   ```bash
+   composer install   ```
+
+4. Install frontend dependencies:   ```bash
+   npm install   ```
+
+5. Set up environment variables by copying the existing template:   ```bash
+   cp .env.example .env   ```
+
+6. Configure your database credentials and other settings within the `.env` file.
+
+7. Generate an application key:   ```bash
+   php artisan key:generate   ```
+
+8. Run database migrations to set up the tables:   ```bash
+   php artisan migrate   ```
+
+9. Serve the application:   ```bash
+   php artisan serve   ```
+
+## Screenshots
+
+Barangay Management - Dashboard
+
+## Technologies Used
+
+- **Backend**: Laravel
+- **Frontend**: TailwindCSS & Vue.js
+- **Database**: MySQL
+- **Version Control**: Git, GitHub
+- **Role Management**: Filament Shield (for roles and permissions)
+
+## Contribution
+
+If you wish to contribute:
+
+1. Fork this repository.
+2. Create your own feature branch:   ```bash
+   git checkout -b feature-name   ```
+3. Commit your changes:   ```bash
+   git commit -m 'Add some feature'   ```
+4. Push to the branch:   ```bash
+   git push origin feature-name   ```
+5. Open a pull request.
 
 ## License
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+This project is licensed under the MIT License. See the LICENSE file for more details.
+
+## Contact
+
+Created by [Your Name] - feel free to reach out if you have any suggestions or contributions!
