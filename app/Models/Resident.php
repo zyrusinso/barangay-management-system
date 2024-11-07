@@ -16,4 +16,9 @@ class Resident extends Model
     {
         return $this->hasMany(MedicalReferral::class, 'resident_id');
     }
+
+    public function luponCases(): HasMany
+    {
+        return $this->hasMany(LuponCase::class, 'resident_id');
+    }
 }

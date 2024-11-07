@@ -61,13 +61,12 @@ class LuponCaseResource extends Resource
             ->columns([
                 Tables\Columns\TextColumn::make('case_number')
                     ->searchable(),
-                Tables\Columns\TextColumn::make('case_status')
-                    ->enum(CaseStatus::class),
-                Tables\Columns\TextColumn::make('resident_complaint_id')
-                    ->numeric()
-                    ->sortable(),
-                Tables\Columns\TextColumn::make('resident_defendant_id')
-                    ->numeric()
+                Tables\Columns\TextColumn::make('case_status'),
+                Tables\Columns\TextColumn::make('residentComplaint.first_name')
+                    ->label('Resident Complaint')
+                ->sortable(),
+                Tables\Columns\TextColumn::make('residentDefendant.first_name')
+                    ->label('Resident Defendant')
                     ->sortable(),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
@@ -77,8 +76,7 @@ class LuponCaseResource extends Resource
                     ->dateTime()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
-                Tables\Columns\TextColumn::make('case_priority')
-                    ->enum(CasePriority::asArray()),
+                Tables\Columns\TextColumn::make('case_priority'),
                 Tables\Columns\TextColumn::make('lupon_head_id')
                     ->numeric()
                     ->sortable(),

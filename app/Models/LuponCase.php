@@ -37,4 +37,14 @@ class LuponCase extends Model
     {
         return $this->hasMany(EscalatedCase::class, 'case_id');
     }
+
+    public function residentComplaint(): BelongsTo
+    {
+        return $this->belongsTo(Resident::class, 'resident_complaint_id');
+    }
+
+    public function residentDefendant(): BelongsTo
+    {
+        return $this->belongsTo(Resident::class, 'resident_defendant_id');
+    }
 }
