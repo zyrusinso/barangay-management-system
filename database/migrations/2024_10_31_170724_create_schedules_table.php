@@ -3,7 +3,6 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
-use App\Enum\ScheduleStatus;
 
 return new class extends Migration
 {
@@ -17,7 +16,7 @@ return new class extends Migration
             $table->unsignedBigInteger('case_id');
             $table->dateTime('mediation_date');
             $table->string('venue', 255)->nullable();
-            $table->enum('status', ScheduleStatus::values())->default(ScheduleStatus::SCHEDULED);
+            $table->string('status')->nullable();
             $table->timestamps();
 
             $table->foreign('case_id')->references('case_id')->on('lupon_cases');

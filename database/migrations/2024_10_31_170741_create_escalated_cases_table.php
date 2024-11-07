@@ -3,7 +3,6 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
-use App\Enum\EscalatedCaseStatus;
 
 return new class extends Migration
 {
@@ -19,7 +18,7 @@ return new class extends Migration
             $table->integer('pnp_received_id')->nullable();
             $table->text('reason')->nullable();
             $table->unsignedBigInteger('escalated_by');
-            $table->enum('status', EscalatedCaseStatus::values())->default(EscalatedCaseStatus::ESCALATED);
+            $table->string('status')->nullable();
             $table->timestamps();
 
             $table->foreign('case_id')->references('case_id')->on('lupon_cases');

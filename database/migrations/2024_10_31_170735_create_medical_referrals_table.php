@@ -3,7 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
-use App\Enum\MedicalReferralStatus;
+
 return new class extends Migration
 {
     /**
@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('healthcare_facility', 255)->nullable();
             $table->date('referral_date')->nullable();
             $table->text('purpose')->nullable();
-            $table->enum('status', MedicalReferralStatus::values())->default(MedicalReferralStatus::PENDING);
+            $table->string('status')->nullable();
             $table->timestamps();
 
             $table->foreign('case_id')->references('case_id')->on('lupon_cases');
