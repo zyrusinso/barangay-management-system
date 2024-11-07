@@ -4,9 +4,9 @@ namespace App\Enum;
 
 enum MedicalReferralStatus: string
 {
-    case PENDING = 'pending';
-    case APPROVED = 'approved';
-    case REJECTED = 'rejected';
+    case PENDING = 'Pending';
+    case APPROVED = 'Approved';
+    case REJECTED = 'Rejected';
 
     public static function values(): array
     {

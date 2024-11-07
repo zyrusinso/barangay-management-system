@@ -12,6 +12,7 @@ use Filament\Tables;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use App\Enum\ScheduleStatus;
 
 class ScheduleResource extends Resource
 {
@@ -25,15 +26,15 @@ class ScheduleResource extends Resource
     {
         return $form
             ->schema([
-                Forms\Components\TextInput::make('case_id')
+                Forms\Components\Select::make('case_id')
                     ->required()
-                    ->numeric(),
+                    ->relationship('luponCase', 'case_number'),
                 Forms\Components\DateTimePicker::make('mediation_date')
                     ->required(),
                 Forms\Components\TextInput::make('venue')
                     ->maxLength(255),
-                Forms\Components\TextInput::make('status')
-                    ->required(),
+                Forms\Components\Select::make('status')
+                    ->options(collect(ScheduleStatus::cases())->pluck('value', 'value')),
             ]);
     }
 

@@ -2,12 +2,12 @@
 
 namespace App\Enum;
 
-class CaseStatus
+enum CaseStatus: string
 {
-    const PENDING = 'Pending';
-    const RESOLVED = 'Resolved';
-    const ESCALATED = 'Escalated';
-    const IN_PROGRESS = 'In Progress';
+    case PENDING = 'Pending';
+    case RESOLVED = 'Resolved';
+    case ESCALATED = 'Escalated';
+    case IN_PROGRESS = 'In Progress';
 
     public static function values(): array
     {

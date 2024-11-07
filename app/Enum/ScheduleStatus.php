@@ -2,11 +2,11 @@
 
 namespace App\Enum;
 
-class ScheduleStatus
+enum ScheduleStatus: string
 {
-    const SCHEDULED = 'scheduled';
-    const COMPLETED = 'completed';
-    const CANCELLED = 'cancelled';
+    case SCHEDULED = 'Scheduled';
+    case COMPLETED = 'Completed';
+    case CANCELLED = 'Cancelled';
 
     public static function values(): array
     {

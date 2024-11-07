@@ -2,11 +2,11 @@
 
 namespace App\Enum;
 
-class CasePriority
+enum CasePriority: string
 {
-    const LOW = 'Low';
-    const MEDIUM = 'Medium';
-    const HIGH = 'High';
+    case LOW = 'Low';
+    case MEDIUM = 'Medium';
+    case HIGH = 'High';
 
     public static function values(): array
     {

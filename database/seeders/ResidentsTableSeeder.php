@@ -16,7 +16,6 @@ class ResidentsTableSeeder extends Seeder
             'address' => '123 Main St',
             'birth_date' => '1990-01-01',
             'contact_number' => '0987654321',
-            'barangay_id' => 1,
         ]);
 
         Resident::create([
@@ -26,7 +25,6 @@ class ResidentsTableSeeder extends Seeder
             'address' => '456 Oak Ave',
             'birth_date' => '1985-06-15',
             'contact_number' => '0912345678',
-            'barangay_id' => 1,
         ]);
     }
 } 

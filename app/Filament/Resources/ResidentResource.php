@@ -37,8 +37,6 @@ class ResidentResource extends Resource
                 Forms\Components\DatePicker::make('birth_date'),
                 Forms\Components\TextInput::make('contact_number')
                     ->maxLength(20),
-                Forms\Components\TextInput::make('barangay_id')
-                    ->numeric(),
             ]);
     }
 

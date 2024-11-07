@@ -19,7 +19,7 @@ return new class extends Migration
             $table->longText('address')->nullable();
             $table->date('birth_date')->nullable();
             $table->string('contact_number', 20)->nullable();
-            $table->unsignedBigInteger('barangay_id')->nullable();
+            // $table->unsignedBigInteger('barangay_id')->nullable();
             $table->timestamps();
         });
     }

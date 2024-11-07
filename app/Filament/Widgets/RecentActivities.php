@@ -10,6 +10,7 @@ use App\Models\User;
 
 class RecentActivities extends BaseWidget
 {
+    
     public function getTableQuery(): Builder
     {
         return User::query()->latest()->limit(5);

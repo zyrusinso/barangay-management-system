@@ -12,6 +12,7 @@ use Filament\Tables;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use App\Enum\EscalatedCaseStatus;
 
 class EscalatedCaseResource extends Resource
 {
@@ -25,19 +26,19 @@ class EscalatedCaseResource extends Resource
     {
         return $form
             ->schema([
-                Forms\Components\TextInput::make('case_id')
+                Forms\Components\Select::make('case_id')
                     ->required()
-                    ->numeric(),
+                    ->relationship('luponCase', 'case_number'),
                 Forms\Components\DatePicker::make('escalation_date'),
                 Forms\Components\TextInput::make('pnp_received_id')
                     ->numeric(),
                 Forms\Components\Textarea::make('reason')
                     ->columnSpanFull(),
-                Forms\Components\TextInput::make('escalated_by')
+                Forms\Components\Select::make('escalated_by')
                     ->required()
-                    ->numeric(),
-                Forms\Components\TextInput::make('status')
-                    ->required(),
+                    ->relationship('lupon', 'first_name'),
+                Forms\Components\Select::make('status')
+                    ->options(collect(EscalatedCaseStatus::cases())->pluck('value', 'value')),
             ]);
     }
 

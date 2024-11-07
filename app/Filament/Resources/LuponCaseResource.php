@@ -12,6 +12,8 @@ use Filament\Tables;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use App\Enum\CaseStatus;
+use App\Enum\CasePriority;
 
 class LuponCaseResource extends Resource
 {
@@ -32,7 +34,9 @@ class LuponCaseResource extends Resource
                     ->maxLength(50),
                 Forms\Components\Textarea::make('case_description')
                     ->columnSpanFull(),
-                Forms\Components\TextInput::make('case_status')
+                Forms\Components\Select::make('case_status')
+                    ->options(collect(CaseStatus::cases())->pluck('value', 'value'))
+                    ->enum(CaseStatus::class)
                     ->required(),
                 Forms\Components\TextInput::make('resident_complaint_id')
                     ->required()
@@ -40,11 +44,14 @@ class LuponCaseResource extends Resource
                 Forms\Components\TextInput::make('resident_defendant_id')
                     ->required()
                     ->numeric(),
-                Forms\Components\TextInput::make('case_priority')
+                Forms\Components\Select::make('case_priority')
+                    ->options(collect(CasePriority::cases())->pluck('value', 'value'))
+                    ->enum(CasePriority::class)
                     ->required(),
-                Forms\Components\TextInput::make('lupon_head_id')
+                Forms\Components\Select::make('lupon_id')
+                    ->label('Lupon')
                     ->required()
-                    ->numeric(),
+                    ->relationship('lupon', 'first_name'),
             ]);
     }
 
@@ -54,7 +61,8 @@ class LuponCaseResource extends Resource
             ->columns([
                 Tables\Columns\TextColumn::make('case_number')
                     ->searchable(),
-                Tables\Columns\TextColumn::make('case_status'),
+                Tables\Columns\TextColumn::make('case_status')
+                    ->enum(CaseStatus::class),
                 Tables\Columns\TextColumn::make('resident_complaint_id')
                     ->numeric()
                     ->sortable(),
@@ -69,7 +77,8 @@ class LuponCaseResource extends Resource
                     ->dateTime()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
-                Tables\Columns\TextColumn::make('case_priority'),
+                Tables\Columns\TextColumn::make('case_priority')
+                    ->enum(CasePriority::asArray()),
                 Tables\Columns\TextColumn::make('lupon_head_id')
                     ->numeric()
                     ->sortable(),

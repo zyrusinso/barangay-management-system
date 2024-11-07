@@ -12,6 +12,7 @@ use Filament\Tables;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use App\Enum\MedicalReferralStatus;
 
 class MedicalReferralResource extends Resource
 {
@@ -25,19 +26,19 @@ class MedicalReferralResource extends Resource
     {
         return $form
             ->schema([
-                Forms\Components\TextInput::make('case_id')
+                Forms\Components\Select::make('case_id')
                     ->required()
-                    ->numeric(),
-                Forms\Components\TextInput::make('resident_id')
+                    ->relationship('luponCase', 'case_number'),
+                Forms\Components\Select::make('resident_id')
                     ->required()
-                    ->numeric(),
+                    ->relationship('resident', 'first_name'),
                 Forms\Components\TextInput::make('healthcare_facility')
                     ->maxLength(255),
                 Forms\Components\DatePicker::make('referral_date'),
                 Forms\Components\Textarea::make('purpose')
                     ->columnSpanFull(),
-                Forms\Components\TextInput::make('status')
-                    ->required(),
+                Forms\Components\Select::make('status')
+                    ->options(collect(MedicalReferralStatus::cases())->pluck('value', 'value')),
             ]);
     }
 

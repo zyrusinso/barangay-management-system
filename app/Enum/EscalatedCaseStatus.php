@@ -2,11 +2,11 @@
 
 namespace App\Enum;
 
-class EscalatedCaseStatus
+enum EscalatedCaseStatus: string
 {
-    const ESCALATED = 'escalated';
-    const RESOLVED = 'resolved';
-    const PENDING = 'pending';
+    case ESCALATED = 'Escalated';
+    case RESOLVED = 'Resolved';
+    case PENDING = 'Pending';
 
     public static function values(): array
     {

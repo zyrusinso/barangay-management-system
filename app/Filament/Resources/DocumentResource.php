@@ -30,6 +30,8 @@ class DocumentResource extends Resource
                     ->relationship('luponCase', 'case_number')
                     ->required(),
                 Forms\Components\FileUpload::make('file_path')
+                    ->directory('documents')
+                    ->downloadable()
                     ->label('File')
                     ->required(),
                 Forms\Components\TextInput::make('file_type')

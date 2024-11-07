@@ -4,11 +4,16 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-
+use Illuminate\Database\Eloquent\Relations\HasMany;
 class Resident extends Model
 {
     use HasFactory;
 
     protected $primaryKey = 'resident_id';
     protected $guarded = [];
+
+    public function medicalReferrals(): HasMany
+    {
+        return $this->hasMany(MedicalReferral::class, 'resident_id');
+    }
 }
