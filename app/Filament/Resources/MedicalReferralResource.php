@@ -46,11 +46,12 @@ class MedicalReferralResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('case_id')
+                Tables\Columns\TextColumn::make('luponCase.case_number')
+                    ->label('Case Number')
                     ->numeric()
                     ->sortable(),
-                Tables\Columns\TextColumn::make('resident_id')
-                    ->numeric()
+                Tables\Columns\TextColumn::make('resident.first_name')
+                    ->label('Patient Name')
                     ->sortable(),
                 Tables\Columns\TextColumn::make('healthcare_facility')
                     ->searchable(),

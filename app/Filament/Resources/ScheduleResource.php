@@ -42,7 +42,8 @@ class ScheduleResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('case_id')
+                Tables\Columns\TextColumn::make('luponCase.case_number')
+                    ->label('Case Number')
                     ->numeric()
                     ->sortable(),
                 Tables\Columns\TextColumn::make('mediation_date')

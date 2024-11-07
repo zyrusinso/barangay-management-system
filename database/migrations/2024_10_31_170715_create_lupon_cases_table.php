@@ -20,11 +20,11 @@ return new class extends Migration
             $table->unsignedBigInteger('resident_defendant_id');
             $table->timestamps();
             $table->string('case_priority')->nullable();
-            $table->unsignedBigInteger('lupon_head_id');
+            $table->unsignedBigInteger('lupon_id');
 
             $table->foreign('resident_complaint_id')->references('resident_id')->on('residents');
             $table->foreign('resident_defendant_id')->references('resident_id')->on('residents');
-            $table->foreign('lupon_head_id')->references('lupon_id')->on('lupons');
+            $table->foreign('lupon_id')->references('lupon_id')->on('lupons');
         });
     }
 

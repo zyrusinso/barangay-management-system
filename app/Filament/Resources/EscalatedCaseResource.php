@@ -46,7 +46,8 @@ class EscalatedCaseResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('case_id')
+                Tables\Columns\TextColumn::make('luponCase.case_number')
+                    ->label('Case Number')
                     ->numeric()
                     ->sortable(),
                 Tables\Columns\TextColumn::make('escalation_date')
@@ -55,8 +56,8 @@ class EscalatedCaseResource extends Resource
                 Tables\Columns\TextColumn::make('pnp_received_id')
                     ->numeric()
                     ->sortable(),
-                Tables\Columns\TextColumn::make('escalated_by')
-                    ->numeric()
+                Tables\Columns\TextColumn::make('lupon.first_name')
+                    ->label('Escalated By')
                     ->sortable(),
                 Tables\Columns\TextColumn::make('status'),
                 Tables\Columns\TextColumn::make('created_at')

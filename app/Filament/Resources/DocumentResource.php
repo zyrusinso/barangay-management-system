@@ -38,29 +38,30 @@ class DocumentResource extends Resource
                     ->label('File Type')
                     ->required()
                     ->maxLength(50),
+                Forms\Components\Select::make('uploaded_by')
+                    ->label('Uploaded By')
+                    ->relationship('luponCase.lupon', 'first_name')
+                    ->default(auth()->id())
+                    ->searchable(),
                 Forms\Components\DateTimePicker::make('uploaded_at')
                     ->required(),
             ]);
-    }
-
-    protected function beforeSave(): void
-    {
-        $this->uploaded_by = auth()->id();
     }
 
     public static function table(Table $table): Table
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('case_id')
+                Tables\Columns\TextColumn::make('luponCase.case_number')
+                    ->label('Case Number')
                     ->numeric()
                     ->sortable(),
                 Tables\Columns\TextColumn::make('file_path')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('file_type')
                     ->searchable(),
-                Tables\Columns\TextColumn::make('uploaded_by')
-                    ->numeric()
+                Tables\Columns\TextColumn::make('lupon.first_name')
+                    ->label('Uploaded By')
                     ->sortable(),
                 Tables\Columns\TextColumn::make('uploaded_at')
                     ->dateTime()

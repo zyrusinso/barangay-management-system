@@ -55,9 +55,6 @@ class ResidentResource extends Resource
                     ->sortable(),
                 Tables\Columns\TextColumn::make('contact_number')
                     ->searchable(),
-                Tables\Columns\TextColumn::make('barangay_id')
-                    ->numeric()
-                    ->sortable(),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()

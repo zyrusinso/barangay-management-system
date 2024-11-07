@@ -18,7 +18,7 @@ class LuponCasesTableSeeder extends Seeder
             'resident_complaint_id' => 1,
             'resident_defendant_id' => 2,
             'case_priority' => CasePriority::LOW,
-            'lupon_head_id' => 1,
+            'lupon_id' => 1,
         ]);
     }
 } 

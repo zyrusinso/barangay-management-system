@@ -64,7 +64,7 @@ class LuponCaseResource extends Resource
                 Tables\Columns\TextColumn::make('case_status'),
                 Tables\Columns\TextColumn::make('residentComplaint.first_name')
                     ->label('Resident Complaint')
-                ->sortable(),
+                    ->sortable(),
                 Tables\Columns\TextColumn::make('residentDefendant.first_name')
                     ->label('Resident Defendant')
                     ->sortable(),
@@ -76,8 +76,9 @@ class LuponCaseResource extends Resource
                     ->dateTime()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
-                Tables\Columns\TextColumn::make('case_priority'),
-                Tables\Columns\TextColumn::make('lupon_head_id')
+                Tables\Columns\TextColumn::make('case_priority')
+                    ->label('Priority'),
+                Tables\Columns\TextColumn::make('lupon.first_name')
                     ->numeric()
                     ->sortable(),
             ])
