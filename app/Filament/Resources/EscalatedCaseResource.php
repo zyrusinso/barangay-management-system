@@ -56,7 +56,7 @@ class EscalatedCaseResource extends Resource
                 Tables\Columns\TextColumn::make('pnp_received_id')
                     ->numeric()
                     ->sortable(),
-                Tables\Columns\TextColumn::make('lupon.first_name')
+                Tables\Columns\TextColumn::make('lupon.fullname')
                     ->label('Escalated By')
                     ->sortable(),
                 Tables\Columns\TextColumn::make('status'),

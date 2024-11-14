@@ -16,4 +16,13 @@ enum CasePriority: string
             self::HIGH,
         ];
     }
+
+    public static function colors(): array
+    {
+        return [
+            'Low' => 'Blue',
+            'Medium' => 'Yellow',
+            'High' => 'Red',
+        ];
+    }
 } 

@@ -50,9 +50,9 @@ class ResidentResource extends Resource
                     ->searchable(),
                 Tables\Columns\TextColumn::make('last_name')
                     ->searchable(),
-                Tables\Columns\TextColumn::make('birth_date')
-                    ->date()
-                    ->sortable(),
+                // Tables\Columns\TextColumn::make('birth_date')
+                //     ->date()
+                //     ->sortable(),
                 Tables\Columns\TextColumn::make('contact_number')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('created_at')

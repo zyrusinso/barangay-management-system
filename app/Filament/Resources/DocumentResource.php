@@ -60,7 +60,7 @@ class DocumentResource extends Resource
                     ->searchable(),
                 Tables\Columns\TextColumn::make('file_type')
                     ->searchable(),
-                Tables\Columns\TextColumn::make('lupon.first_name')
+                Tables\Columns\TextColumn::make('lupon.fullname')
                     ->label('Uploaded By')
                     ->sortable(),
                 Tables\Columns\TextColumn::make('uploaded_at')
