@@ -5,7 +5,8 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\HasMany;
-
+use Illuminate\Database\Eloquent\Casts\Attribute;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 class Lupon extends Model
 {
     use HasFactory;
@@ -26,6 +27,23 @@ class Lupon extends Model
     public function escalatedCases(): HasMany
     {
         return $this->hasMany(EscalatedCase::class, 'escalated_by');
+    }
+
+    protected function fullname(): Attribute
+    {
+        return new Attribute(
+            get: fn () => $this->first_name . ' ' . $this->last_name,
+        );
+    }
+
+    public function residentDefendant(): BelongsTo
+    {
+        return $this->belongsTo(Resident::class, 'resident_defendant_id');
+    }
+
+    public function residentComplaint(): BelongsTo
+    {
+        return $this->belongsTo(Resident::class, 'resident_complaint_id');
     }
 }
 

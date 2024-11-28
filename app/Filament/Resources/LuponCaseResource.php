@@ -31,6 +31,7 @@ class LuponCaseResource extends Resource
             ->schema([
                 Forms\Components\TextInput::make('case_number')
                     ->required()
+                    ->unique()
                     ->maxLength(50),
                 Forms\Components\Textarea::make('case_description')
                     ->columnSpanFull(),
@@ -64,10 +65,10 @@ class LuponCaseResource extends Resource
                 Tables\Columns\TextColumn::make('case_number')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('case_status'),
-                Tables\Columns\TextColumn::make('residentComplaint.first_name')
+                Tables\Columns\TextColumn::make('residentComplaint.fullname')
                     ->label('Resident Complaint')
                     ->sortable(),
-                Tables\Columns\TextColumn::make('residentDefendant.first_name')
+                Tables\Columns\TextColumn::make('residentDefendant.fullname')
                     ->label('Resident Defendant')
                     ->sortable(),
                 Tables\Columns\TextColumn::make('created_at')
@@ -80,7 +81,7 @@ class LuponCaseResource extends Resource
                     ->toggleable(isToggledHiddenByDefault: true),
                 Tables\Columns\TextColumn::make('case_priority')
                     ->label('Priority'),
-                Tables\Columns\TextColumn::make('lupon.first_name')
+                Tables\Columns\TextColumn::make('lupon.fullname')
                     ->numeric()
                     ->sortable(),
             ])

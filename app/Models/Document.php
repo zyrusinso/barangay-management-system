@@ -17,4 +17,9 @@ class Document extends Model
     {
         return $this->belongsTo(LuponCase::class, 'case_id');
     }
+
+    public function lupon(): BelongsTo
+    {
+        return $this->belongsTo(Lupon::class, 'uploaded_by');
+    }
 }
