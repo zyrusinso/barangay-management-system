@@ -35,15 +35,5 @@ class Lupon extends Model
             get: fn () => $this->first_name . ' ' . $this->last_name,
         );
     }
-
-    public function residentDefendant(): BelongsTo
-    {
-        return $this->belongsTo(Resident::class, 'resident_defendant_id');
-    }
-
-    public function residentComplaint(): BelongsTo
-    {
-        return $this->belongsTo(Resident::class, 'resident_complaint_id');
-    }
 }
 

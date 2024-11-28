@@ -80,9 +80,10 @@ class LuponCaseResource extends Resource
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
                 Tables\Columns\TextColumn::make('case_priority')
-                    ->label('Priority'),
+                    ->label('Priority')
+                    ->badge(),
                 Tables\Columns\TextColumn::make('lupon.fullname')
-                    ->numeric()
+                    ->label('Lupon')
                     ->sortable(),
             ])
             ->filters([

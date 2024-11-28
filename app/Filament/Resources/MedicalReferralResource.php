@@ -50,7 +50,7 @@ class MedicalReferralResource extends Resource
                     ->label('Case Number')
                     ->numeric()
                     ->sortable(),
-                Tables\Columns\TextColumn::make('resident.first_name')
+                Tables\Columns\TextColumn::make('resident.fullname')
                     ->label('Patient Name')
                     ->sortable(),
                 Tables\Columns\TextColumn::make('healthcare_facility')
