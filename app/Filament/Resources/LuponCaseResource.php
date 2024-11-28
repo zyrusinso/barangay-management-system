@@ -38,12 +38,14 @@ class LuponCaseResource extends Resource
                     ->options(collect(CaseStatus::cases())->pluck('value', 'value'))
                     ->enum(CaseStatus::class)
                     ->required(),
-                Forms\Components\TextInput::make('resident_complaint_id')
+                Forms\Components\Select::make('resident_complaint_id')
+                    ->label('Resident Complaint')
                     ->required()
-                    ->numeric(),
-                Forms\Components\TextInput::make('resident_defendant_id')
+                    ->relationship('residentComplaint', 'first_name'),
+                Forms\Components\Select::make('resident_defendant_id')
+                    ->label('Resident Defendant')
                     ->required()
-                    ->numeric(),
+                    ->relationship('residentDefendant', 'first_name'),
                 Forms\Components\Select::make('case_priority')
                     ->options(collect(CasePriority::cases())->pluck('value', 'value'))
                     ->enum(CasePriority::class)
