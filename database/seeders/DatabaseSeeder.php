@@ -17,6 +17,7 @@ class DatabaseSeeder extends Seeder
             EscalatedCasesTableSeeder::class,
             DocumentsTableSeeder::class,
             UserSeeder::class,
+            ShieldSeeder::class,
         ]);
     }
 }
